@@ -15,7 +15,7 @@ module.exports = async function (context, req) {
 
     // query to return all items
     const querySpec = {
-      query: "SELECT c.domainName, c.domainLabel, c.isDomainActive  from botConfig c" 
+      query: "SELECT c.domainName, c.domainLabel, c.isDomainActive, c.knowledgeBaseId, c.knowledgeBaseEndpointKey, c.host, c.maxResponsesInSearch, c.confidenceThreshold, c.helpText, c.reasonPhrases, c.primaryEmailContact, c.secondaryEmailContact, c.lookbackTimeForLog  from botConfig c" 
     };
     
     // read all items in the Items container

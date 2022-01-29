@@ -37,9 +37,10 @@ module.exports = async function (context, req) {
         "maxResponsesInSearch": req.body.maxResponsesInSearch,
         "confidenceThreshold": req.body.confidenceThreshold,
         "helpText": req.body.helpText,
+        "reasonPhrases" : req.body.reasonPhrases,
         "primaryEmailContact": req.body.primaryEmailContact,
         "secondaryEmailContact": req.body.secondaryEmailContact,
-        "lookbackTimeForLog": req.body.interests
+        "lookbackTimeForLog": req.body.lookbackTimeForLog
     }
     console.log ("_______________________________")
     console.log (items.length)
