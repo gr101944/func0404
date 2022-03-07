@@ -2,18 +2,20 @@
 
 const { CosmosClient } = require("@azure/cosmos");
 
-var endpoint = process.env["CosmosDBEndpoint"];
-var key = process.env["CosmosDBAuthKey"];
+const endpoint = process.env["CosmosDBEndpoint"];
+const key = process.env["CosmosDBAuthKey"];
 
 
 const client = new CosmosClient({ endpoint, key });
 
  
 
-const databaseDefinition = { id: "botDBNew" };
+const databaseDefinition = { id: "botDB" };
 
-const collectionDefinition = { id: "botConfigNew" };
-const partitionKey = { kind: "Hash", paths: ["/domainName"] }
+const collectionDefinition1 = { id: "botConfig" };
+const collectionDefinition2 = { id: "botConversation" };
+const partitionKey1 = { kind: "Hash", paths: ["/domainName"] }
+const partitionKey2 = { kind: "Hash", paths: ["/botConversation"] }
 
 const documentDefinition = { domainName: "People", domainLabel: "People (HR)" };
 
@@ -29,18 +31,26 @@ async function helloCosmos() {
   const { container } = await client
   .database(databaseId)
   .containers.createIfNotExists(
-    { id: collectionDefinition.id, partitionKey }
+    { id: collectionDefinition1.id, partitionKey1 }
   );
+  console.log("created collection1");
+
+  const { container } = await client
+  .database(databaseId)
+  .containers.createIfNotExists(
+    { id: collectionDefinition2.id, partitionKey2 }
+  );
+  console.log("created collection2");
 
   // const { container } = await database.containers.createIfNotExists(collectionDefinition);
 
-  console.log("created collection");
+  // console.log("created collection");
 
  
 
-  const { resource } = await container.items.upsert(documentDefinition);
+  // const { resource } = await container.items.upsert(documentDefinition);
 
-  console.log("Created item with content: ", resource.content);
+  // console.log("Created item with content: ", resource.content);
 
  
 

@@ -1,8 +1,8 @@
 const { CosmosClient } = require("@azure/cosmos");
-var endpoint = process.env["CosmosDBEndpoint"];
-var key = process.env["CosmosDBAuthKey"];
-var databaseName = process.env["DatabaseName"];
-var collectionName = process.env["configCollectionName"];
+const endpoint = process.env["CosmosDBEndpoint"];
+const key = process.env["CosmosDBAuthKey"];
+const databaseName = process.env["DatabaseName"];
+const collectionName = process.env["configCollectionName"];
 const client = new CosmosClient({ endpoint, key });
 const database = client.database(databaseName);
 const container = database.container(collectionName);
@@ -40,7 +40,8 @@ module.exports = async function (context, req) {
         "reasonPhrases" : req.body.reasonPhrases,
         "primaryEmailContact": req.body.primaryEmailContact,
         "secondaryEmailContact": req.body.secondaryEmailContact,
-        "lookbackTimeForLog": req.body.lookbackTimeForLog
+        "lookbackTimeForLog": req.body.lookbackTimeForLog,
+        "ccToUser": req.body.ccToUser
     }
     console.log ("_______________________________")
     console.log (items.length)
