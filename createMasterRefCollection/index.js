@@ -23,24 +23,24 @@ const documentDefinition = { domainName: "People", domainLabel: "People (HR)" };
 
 async function helloCosmos() {
 
-  const { database } = await client.databases.createIfNotExists({ id: databaseDefinition.id });
+  // const { database } = await client.databases.createIfNotExists({ id: databaseDefinition.id });
 
-  var databaseId  = (database.id);
-  console.log (databaseId)
+  // var databaseId  = (database.id);
+  // console.log (databaseId)
 
-  const { container } = await client
-  .database(databaseId)
-  .containers.createIfNotExists(
-    { id: collectionDefinition1.id, partitionKey1 }
-  );
-  console.log("created collection1");
+  // const { container } = await client
+  // .database(databaseId)
+  // .containers.createIfNotExists(
+  //   { id: collectionDefinition1.id, partitionKey1 }
+  // );
+  // console.log("created collection1");
 
-  const { container } = await client
-  .database(databaseId)
-  .containers.createIfNotExists(
-    { id: collectionDefinition2.id, partitionKey2 }
-  );
-  console.log("created collection2");
+  // const { container } = await client
+  // .database(databaseId)
+  // .containers.createIfNotExists(
+  //   { id: collectionDefinition2.id, partitionKey2 }
+  // );
+  // console.log("created collection2");
 
   // const { container } = await database.containers.createIfNotExists(collectionDefinition);
 

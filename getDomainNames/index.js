@@ -10,18 +10,17 @@ const container = database.container(collectionName);
 
 module.exports = async function (context, req) {
 
-  console.log ("endPoint " + endpoint);
-  console.log ("key " + key);
-  console.log ("databaseName " + databaseName);
-  console.log ("collectionName " + collectionName);
-
     
     
     console.log(`Querying container: Items`);
 
     // query to return all items
+    // const querySpec = {
+    //   query: "SELECT c.domainName, c.domainLabel, c.isDomainActive, c.knowledgeBaseId, c.knowledgeBaseEndpointKey, c.host, c.maxResponsesInSearch, c.confidenceThreshold, c.helpText, c.reasonPhrases, c.primaryEmailContact, c.secondaryEmailContact, c.lookbackTimeForLog, c.ccToUser  from botConfig c" 
+    // };
+
     const querySpec = {
-      query: "SELECT c.domainName, c.domainLabel, c.isDomainActive, c.knowledgeBaseId, c.knowledgeBaseEndpointKey, c.host, c.maxResponsesInSearch, c.confidenceThreshold, c.helpText, c.reasonPhrases, c.primaryEmailContact, c.secondaryEmailContact, c.lookbackTimeForLog, c.ccToUser  from botConfig c" 
+      query: "SELECT * from botConfig c" 
     };
     
     // read all items in the Items container

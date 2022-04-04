@@ -1,6 +1,6 @@
 const { CosmosClient } = require("@azure/cosmos");
-var endpoint = process.env["CosmosDBEndpoint"];
-var key = process.env["CosmosDBAuthKey"];
+const endpoint = process.env["CosmosDBEndpoint"];
+const key = process.env["CosmosDBAuthKey"];
 var databaseName = process.env["DatabaseName"];
 var collectionName = process.env["configCollectionName"];
 const client = new CosmosClient({ endpoint, key });

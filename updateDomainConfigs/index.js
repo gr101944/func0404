@@ -41,7 +41,9 @@ module.exports = async function (context, req) {
         "primaryEmailContact": req.body.primaryEmailContact,
         "secondaryEmailContact": req.body.secondaryEmailContact,
         "lookbackTimeForLog": req.body.lookbackTimeForLog,
-        "ccToUser": req.body.ccToUser
+        "ccToUser": req.body.ccToUser,
+        "defaultInd": req.body.defaultInd,
+        "displayInd": req.body.displayInd
     }
     console.log ("_______________________________")
     console.log (items.length)
